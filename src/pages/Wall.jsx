@@ -113,25 +113,25 @@ const Wall = () => {
   const displayConfessions = confessions.slice(-20).reverse();
 
   return (
-    <div className="wall-page\">
+    <div className="wall-page">
       <ThemeToggle />
 
-      <div className="wall-content\">
-        <h1 className="page-title gradient-text\">🧱 THE WALL</h1>
-        <p className="wall-subtitle\">Share anonymous thoughts. No judgment, just understanding.</p>
+      <div className="wall-content">
+        <h1 className="page-title gradient-text">🧱 THE WALL</h1>
+        <p className="wall-subtitle">Share anonymous thoughts. No judgment, just understanding.</p>
 
         {/* Confession Form */}
-        <div className="confession-form\">
+        <div className="confession-form">
           <textarea
-            className="confession-input\"
-            placeholder="Share what's on your mind... (max 120 characters)\"
+            className="confession-input"
+            placeholder="Share what's on your mind... (max 120 characters)"
             value={newConfession}
             onChange={(e) => setNewConfession(e.target.value)}
             maxLength={120}
           />
-          <div className="form-footer\">
+          <div className="form-footer">
             <select
-              className="mood-select\"
+              className="mood-select"
               value={selectedMood}
               onChange={(e) => setSelectedMood(e.target.value)}
             >
@@ -141,9 +141,9 @@ const Wall = () => {
                 </option>
               ))}
             </select>
-            <div className="char-count\">{newConfession.length}/120</div>
+            <div className="char-count">{newConfession.length}/120</div>
             <button
-              className="btn-post\"
+              className="btn-post"
               onClick={handleSubmitConfession}
               disabled={!newConfession.trim() || newConfession.length > 120}
             >
@@ -153,23 +153,23 @@ const Wall = () => {
         </div>
 
         {/* Confessions List */}
-        <div className="confessions-list\">
+        <div className="confessions-list">
           {displayConfessions.length === 0 ? (
-            <div className="empty-state\">No confessions yet. Be the first to share! 💬</div>
+            <div className="empty-state">No confessions yet. Be the first to share! 💬</div>
           ) : (
             displayConfessions.map(confession => (
               <div
                 key={confession.id}
-                className="confession-card\"
+                className="confession-card"
                 style={{ borderLeftColor: moodColors[confession.mood] }}
               >
-                <div className="confession-header\">
-                  <span className="confession-avatar\">{confession.avatar}</span>
-                  <span className="confession-mood\">#{confession.mood}</span>
-                  <span className="confession-time\">{timeAgo(confession.timestamp)}</span>
+                <div className="confession-header">
+                  <span className="confession-avatar">{confession.avatar}</span>
+                  <span className="confession-mood">#{confession.mood}</span>
+                  <span className="confession-time">{timeAgo(confession.timestamp)}</span>
                 </div>
-                <div className="confession-text\">{confession.text}</div>
-                <div className="confession-reactions\">
+                <div className="confession-text">{confession.text}</div>
+                <div className="confession-reactions">
                   {reactionEmojis.map(emoji => {
                     const count = confession.reactions[emoji] || 0;
                     const userReacted = userReactions[confession.id] === emoji;
