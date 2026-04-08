@@ -99,7 +99,7 @@ const Submit = () => {
     localStorage.setItem(`es_moods_${currentRoom}`, JSON.stringify(moods));
 
     // Set cooldown (30 minutes)
-    const cooldownTime = Date.now() + (30 * 60 * 1000);
+    const cooldownTime = Date.now() + (20 * 60 * 1000);
     localStorage.setItem(`es_cooldown_${currentRoom}`, cooldownTime.toString());
     setCooldown(cooldownTime);
 
